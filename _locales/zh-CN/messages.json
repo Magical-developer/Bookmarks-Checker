@@ -1,0 +1,83 @@
+{
+  "appName": {
+    "message": "书签检查器 - 重复和失效链接"
+  },
+  "description": {
+    "message": "检查您的书签是否有重复或失效的链接。"
+  },
+  "homePageTip": {
+    "message": "此扩展用于管理您的书签。请选择一个操作开始。"
+  },
+  "checkDuplicates": {
+    "message": "检查重复项"
+  },
+  "notFindDuplicates": {
+    "message": "未找到重复项"
+  },
+  "checkInvalids": {
+    "message": "检查失效项"
+  },
+  "notFindInvalids": {
+    "message": "未找到失效项"
+  },
+  "selectFolder": {
+    "message": "选择文件夹"
+  },
+  "settings": {
+    "message": "设置"
+  },
+  "checkDuplicateActionTip": {
+    "message": "检查重复书签"
+  },
+  "checkInvalidActionTip": {
+    "message": "检查失效书签"
+  },
+  "selectFolderActionTip": {
+    "message": "选择要检查的文件夹，留空则检查所有文件夹"
+  },
+  "duplicationCheckSetting": {
+    "message": "重复检查设置"
+  },
+  "useDomaiForDuplicationCheck": {
+    "message": "使用域名进行重复检查"
+  },
+  "useDomaiForDuplicationCheckTip": {
+    "message": "如果启用，将使用URL的域名进行重复检查。否则，将使用完整的URL。"
+  },
+  "invalidCheckSetting": {
+    "message": "失效检查设置"
+  },
+  "maxRequests": {
+    "message": "最大请求数"
+  },
+  "maxRequestsTip": {
+    "message": "并发请求的最大数量，数量越大，检查速度越快，但可能会导致服务器拒绝服务。"
+  },
+  "requestTimeout": {
+    "message": "请求超时"
+  },
+  "requestTimeoutTip": {
+    "message": "等待服务器响应的最长时间。时间越长，检查速度越慢。如果请求时间超过此值，将被视为超时。"
+  },
+  "donate": {
+    "message": "捐赠"
+  },
+  "donateTip": {
+    "message": "如果您喜欢此扩展，可以捐赠以支持此扩展的开发。"
+  },
+  "seconds": {
+    "message": "秒"
+  },
+  "wechat": {
+    "message": "微信"
+  },
+  "alipay": {
+    "message": "支付宝"
+  },
+  "ethErc20": {
+    "message": "ETH/ERC20"
+  },
+  "btc": {
+    "message": "比特币"
+  }
+}

@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Bookmarks Checker - Duplicate and Dead Links",
-  "description": "Check your bookmarks for duplicates or dead links.",
+  "name": "__MSG_appName__",
+  "default_locale": "en",
+  "description": "__MSG_description__",
   "devtools_page": "src/pages/panel/index.html",
   "action": {
     "default_popup": "src/pages/popup/index.html",

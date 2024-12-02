@@ -9,6 +9,7 @@ function init() {
   const root = createRoot(rootContainer);
   root.render(
     <NextUIProvider>
+      <title>{chrome.i18n.getMessage("appName") || "Bookmark Manager"} </title>
       <Panel />
     </NextUIProvider>
   );

@@ -45,8 +45,8 @@ export const ResultComponent = ({
     if (!data.size && !isHandling) {
       const message =
         action === ActionType.CHECK_DUPLICATE
-          ? "No duplicate bookmarks found"
-          : "No invalid bookmarks found";
+          ? chrome.i18n.getMessage("notFindDuplicates")
+          : chrome.i18n.getMessage("notFindInvalids");
       return (
         <div>
           <h4 className="text-lg font-bold text-center">{message}</h4>

@@ -36,7 +36,7 @@ export const Actions = (props: ActionsProps) => {
             </Tooltip>
           }
         >
-          Check Duplicate
+          {chrome.i18n.getMessage("checkDuplicates")}
         </Button>
         <Button
           onPress={checkInvalid}
@@ -48,7 +48,7 @@ export const Actions = (props: ActionsProps) => {
             </Tooltip>
           }
         >
-          Check Invalid
+          {chrome.i18n.getMessage("checkInvalids")}
         </Button>
         <div>
           <Select

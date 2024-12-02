@@ -90,6 +90,7 @@ export default function Panel(): JSX.Element {
 
   return (
     <div className="flex h-screen max-w-screen-2xl mx-auto p-4 gap-4">
+      {/* <title>{chrome.i18n.getMessage("appName")}</title> */}
       <Card className="overflow-y-auto w-4/12 min-w-[350px]">
         {bookmarks.map((node) => (
           <BookmarkTreeItem

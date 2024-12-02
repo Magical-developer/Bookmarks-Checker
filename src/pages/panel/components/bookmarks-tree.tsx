@@ -13,15 +13,7 @@ interface BookmarkProps {
 
 export const BookmarkTreeItem = ({ node, handleDelete }: BookmarkProps) => {
   return (
-    <Accordion
-      defaultExpandedKeys={[
-        node.id,
-        ...(node.children || []).map((child) =>
-          child.children ? child.id : ""
-        ),
-      ]}
-      fullWidth
-    >
+    <Accordion fullWidth>
       <AccordionItem
         key={node.id}
         title={

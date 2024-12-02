@@ -66,7 +66,9 @@ export const ResultComponent = ({
         )}
         {Array.from(data.entries()).map(([key, nodes]) => (
           <div key={key}>
-            <h4 className="text-lg font-bold text-danger-500">{label(key)}</h4>
+            <h4 className="text-lg font-bold text-danger-500">
+              {label(key)} ({nodes?.length})
+            </h4>
             <Spacer y={2} />
             {nodes?.map((node) => renderBookmarkNode(key, node))}
           </div>

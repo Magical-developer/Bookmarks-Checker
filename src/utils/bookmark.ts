@@ -2,7 +2,7 @@ import axios from "axios";
 import { ActionType, dfs } from "@src/utils";
 import async from "async";
 
-export const checkDuplicate = (
+export const checkDuplicate = async (
   bookmarks: chrome.bookmarks.BookmarkTreeNode[],
   selectedFolders: chrome.bookmarks.BookmarkTreeNode[],
   useDomainForDuplicationCheck: boolean,
@@ -18,40 +18,52 @@ export const checkDuplicate = (
   const duplicates: Map<string, chrome.bookmarks.BookmarkTreeNode[]> =
     new Map();
 
+  const normalizeUrl = (url: string) => {
+    return url.replace(/\/$/, "").toLowerCase(); // 标准化 URL
+  };
+
   const handleLeafNode = (node: chrome.bookmarks.BookmarkTreeNode) => {
     if (!node.url) return;
-    if (useDomainForDuplicationCheck) {
-      const domain = new URL(node.url).hostname;
-      const nodes = duplicates.get(domain);
-      if (nodes) {
-        nodes.push(node);
-      } else {
-        duplicates.set(domain, [node]);
-      }
+    const key = useDomainForDuplicationCheck
+      ? new URL(node.url).hostname
+      : normalizeUrl(node.url); // 使用标准化的 URL
+
+    console.log("Processing node:", node.title, "with key:", key);
+
+    if (duplicates.has(key)) {
+      duplicates.get(key)?.push(node); // 直接存储节点
     } else {
-      const url = node.url;
-      const nodes = duplicates.get(url);
-      if (nodes) {
-        nodes.push(node);
-      } else {
-        duplicates.set(url, [node]);
-      }
+      duplicates.set(key, [node]); // 初始化为数组
     }
   };
 
-  if (selectedFolders.length > 0) {
-    selectedFolders.forEach((folder) => {
-      dfs(folder, handleLeafNode);
-    });
-  } else {
-    bookmarks.forEach((folder) => {
-      dfs(folder, handleLeafNode);
-    });
-  }
-  const filteredDuplicates = new Map(
-    Array.from(duplicates.entries()).filter(([, nodes]) => nodes.length > 1)
+  const nodesToCheck = selectedFolders.length > 0 ? selectedFolders : bookmarks;
+
+  console.log(
+    "Nodes to check:",
+    nodesToCheck.map((node) => node.title)
   );
-  setResults(filteredDuplicates);
+
+  // 假设 dfs 是一个异步函数
+  for (const folder of nodesToCheck) {
+    await dfs(folder, handleLeafNode); // 使用 await 等待异步操作完成
+  }
+
+  // 输出 duplicates 映射的内容
+  console.log(
+    "All duplicates before filtering:",
+    Array.from(duplicates.entries())
+  );
+
+  const filteredDuplicates = new Map(
+    Array.from(duplicates.entries()).filter(([, nodes]) => {
+      console.log("Checking nodes for key:", nodes); // 输出当前检查的节点
+      return nodes.length > 1; // 确保节点数量大于 1
+    })
+  );
+
+  console.log("filteredDuplicates", Array.from(filteredDuplicates.entries())); // 输出过滤后的重复项
+  setResults(filteredDuplicates); // 这里的类型应该匹配
 };
 
 export const checkInvalid = async (

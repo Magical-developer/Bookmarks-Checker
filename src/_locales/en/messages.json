@@ -17,7 +17,6 @@
   "checkInvalids": {
     "message": "Check invalids"
   },
-  "": {},
   "notFindInvalids": {
     "message": "Not find invalids"
   },
@@ -44,6 +43,9 @@
   },
   "maxRequestsTip": {
     "message": "The maximum number of concurrent requests, the larger the number, the faster the check speed, but it may cause the server to refuse service"
+  },
+  "checkInvalidResultTip": {
+    "message": "There may be errors in the checking results, so please be careful when deleting."
   },
   "requestTimeout": {
     "message": "Request Timeout"
@@ -80,5 +82,11 @@
   },
   "btc": {
     "message": "BTC"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "status": {
+    "message": "Status"
   }
 }

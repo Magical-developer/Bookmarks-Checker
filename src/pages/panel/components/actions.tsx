@@ -31,7 +31,9 @@ export const Actions = (props: ActionsProps) => {
           onPress={checkDuplicate}
           isDisabled={isHandling}
           endContent={
-            <Tooltip content="Check for duplicate bookmarks">
+            <Tooltip
+              content={chrome.i18n.getMessage("checkDuplicateActionTip")}
+            >
               <span>?</span>
             </Tooltip>
           }
@@ -43,7 +45,7 @@ export const Actions = (props: ActionsProps) => {
           color="danger"
           isDisabled={isHandling}
           endContent={
-            <Tooltip content="Check for invalid bookmarks">
+            <Tooltip content={chrome.i18n.getMessage("checkInvalidActionTip")}>
               <span>?</span>
             </Tooltip>
           }
@@ -52,10 +54,10 @@ export const Actions = (props: ActionsProps) => {
         </Button>
         <div>
           <Select
-            placeholder="Select folders"
+            placeholder={chrome.i18n.getMessage("selectFolder")}
             selectionMode="multiple"
             className="max-w-xs min-w-[200px]"
-            aria-label="Select folders"
+            aria-label={chrome.i18n.getMessage("selectFolder")}
             onChange={(e) => {
               const v = e.target.value.split(",");
               const folders = allFolders.filter((folder) =>
@@ -64,7 +66,9 @@ export const Actions = (props: ActionsProps) => {
               selectFolders(folders);
             }}
             endContent={
-              <Tooltip content="Select folders to check, leave empty to check all">
+              <Tooltip
+                content={chrome.i18n.getMessage("selectFolderActionTip")}
+              >
                 <span>?</span>
               </Tooltip>
             }

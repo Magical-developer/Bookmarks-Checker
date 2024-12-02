@@ -53,6 +53,9 @@
   "maxRequestsTip": {
     "message": "并发请求的最大数量，数量越大，检查速度越快，但可能会导致服务器拒绝服务。"
   },
+  "checkInvalidResultTip": {
+    "message": "检查结果可能存在误差，请小心删除。"
+  },
   "requestTimeout": {
     "message": "请求超时"
   },
@@ -79,5 +82,11 @@
   },
   "btc": {
     "message": "比特币"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "status": {
+    "message": "状态"
   }
 }

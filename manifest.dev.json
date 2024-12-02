@@ -1,4 +1,7 @@
 {
+  "manifest_version": 3,
+  "name": "__MSG_appName__",
+  "description": "__MSG_description__",
   "action": {
     "default_icon": "public/bookmark.png",
     "default_popup": "src/pages/popup/index.html"

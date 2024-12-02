@@ -42,13 +42,13 @@ export const Settings = (props: SettingsProps) => {
   return (
     <Modal isOpen={visible} onClose={onClose} size="2xl">
       <ModalContent>
-        <ModalHeader>Settings</ModalHeader>
+        <ModalHeader>{chrome.i18n.getMessage("settings")}</ModalHeader>
         <Divider />
         <ModalBody className="gap-2">
           <Card>
             <CardHeader>
               <h3 className="text-base font-bold">
-                Duplication Check Settings
+                {chrome.i18n.getMessage("duplicationCheckSetting")}
               </h3>
             </CardHeader>
             <Divider />
@@ -57,39 +57,39 @@ export const Settings = (props: SettingsProps) => {
                 isSelected={useDomainForDuplicationCheck}
                 onValueChange={(flag) => setUseDomainForDuplicationCheck(flag)}
               >
-                Use domain for duplication check
+                {chrome.i18n.getMessage("useDomaiForDuplicationCheck")}
               </Checkbox>
               <p className="text-xs text-gray-500">
-                By default, if two bookmarks have the same URL, we consider them
-                as duplicate bookmarks. If this option is enabled, we will use
-                the domain as the criterion.
+                {chrome.i18n.getMessage("useDomaiForDuplicationCheckTip")}
               </p>
             </CardBody>
           </Card>
           <Card>
             <CardHeader>
-              <h3 className="text-base font-bold">Request Settings</h3>
+              <h3 className="text-base font-bold">
+                {chrome.i18n.getMessage("requestSetting")}
+              </h3>
             </CardHeader>
             <Divider />
             <CardBody className="flex flex-col gap-4">
               <Input
-                label="Max Requests"
+                label={chrome.i18n.getMessage("maxRequests")}
                 type="number"
                 value={maxRequests + ""}
                 min={1}
                 onChange={(e) => setMaxRequests(Number(e.target.value))}
-                description="The maximum number of concurrent requests, the larger the number, the faster the check speed, but it may cause the server to refuse service"
+                description={chrome.i18n.getMessage("maxRequestsTip")}
                 max={10}
               />
               <Input
-                label="Request Timeout"
+                label={chrome.i18n.getMessage("requestTimeout")}
                 type="number"
                 value={requestTimeout + ""}
                 min={1}
                 max={30}
                 onChange={(e) => setRequestTimeout(Number(e.target.value))}
                 endContent="Seconds"
-                description="If the request time exceeds this value, it will be considered a timeout"
+                description={chrome.i18n.getMessage("requestTimeoutTip")}
               />
             </CardBody>
           </Card>
@@ -100,21 +100,20 @@ export const Settings = (props: SettingsProps) => {
               onClose(); // close modal
             }}
           >
-            Save
+            {chrome.i18n.getMessage("save")}
           </Button>
         </ModalBody>
         <Divider />
         <ModalFooter className="flex flex-col">
           <Card>
             <CardHeader>
-              <h3 className="text-base font-bold">Donate</h3>
+              <h3 className="text-base font-bold">
+                {chrome.i18n.getMessage("donate")}
+              </h3>
             </CardHeader>
             <Divider />
             <CardBody className="flex flex-col gap-2">
-              <p>
-                If you like this extension, you can donate to support the
-                development of this extension.
-              </p>
+              <p>{chrome.i18n.getMessage("donateTip")}</p>
               <section className="flex flex-col text-gray-500">
                 <div className="flex justify-around">
                   <DonationOption

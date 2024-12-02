@@ -59,8 +59,7 @@ export const ResultComponent = ({
           <div className="flex flex-col gap-2">
             {renderProgress()}
             <h4 className="text-lg font-bold text-center text-gray-500">
-              There may be errors in the checking results, so please be careful
-              when deleting.
+              {chrome.i18n.getMessage("checkInvalidResultTip")}
             </h4>
           </div>
         )}
@@ -85,8 +84,7 @@ export const ResultComponent = ({
     default:
       return (
         <div className="flex flex-col items-center justify-center h-full gap-4 text-center text-gray-500 text-lg">
-          This Extension is used to manage your bookmarks. Please select an
-          action to start.
+          {chrome.i18n.getMessage("homePageTip")}
         </div>
       );
   }

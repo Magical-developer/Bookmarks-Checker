@@ -1,7 +1,6 @@
 {
   "manifest_version": 3,
   "name": "__MSG_appName__",
-  "default_locale": "en",
   "description": "__MSG_description__",
   "devtools_page": "src/pages/panel/index.html",
   "action": {
